@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: user-service
-        image: YOUR_DOCKERHUB_USERNAME/user-service:latest
+        image: anuragpm/user-service:latest
         ports:
         - containerPort: 3000
 ---
