@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Microservices Demo</title>
+</head>
+<body>
+  <h1>Microservices Demo</h1>
+
+  <button onclick="loadUsers()">Users</button>
+  <button onclick="loadProducts()">Products</button>
+  <button onclick="loadOrders()">Orders</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    const baseURL = "http://<EC2-IP>:30008"; // gateway NodePort
+
+    async function loadUsers() {
+      const res = await fetch(baseURL + "/users");
+      document.getElementById("output").innerText = await res.text();
+    }
+
+    async function loadProducts() {
+      const res = await fetch(baseURL + "/products");
+      document.getElementById("output").innerText = await res.text();
+    }
+
+    async function loadOrders() {
+      const res = await fetch(baseURL + "/orders");
+      document.getElementById("output").innerText = await res.text();
+    }
+  </script>
+</body>
+</html>
